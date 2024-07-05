@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Dogs for Adoption</h1>
-    <b-table striped hover :items="dogs">
+    <b-table striped hover :items="getAllDogs">
       <template #cell(name)="data">
         <router-link :to="`/pets/dogs/${data.index}`">
           {{ data.value }}
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'DogsView',
@@ -21,8 +21,8 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'dogs'
+    ...mapGetters([
+      'getAllDogs'
     ])
   }
 }
